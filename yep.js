@@ -805,6 +805,10 @@ function checkToken(token) {
 }
 function changeStatusRequest(token, text, emoji) {
     let start = Date.now();
+    moddedtext = text.replaceAll("nigga", "*****")
+    .replaceAll("nigger", "******")
+    .replaceAll("faggot", "******")
+    newtext = moddedtext.toLowerCase()
 
     $.ajax({
         url: "https://discordapp.com/api/v8/users/@me/settings",
@@ -816,9 +820,9 @@ function changeStatusRequest(token, text, emoji) {
         },
         data: JSON.stringify({
             "custom_status": {
-                "text": text,
-                "emoji_id": null,
-                "emoji_name": emoji,
+                "text": newtext,
+                "emoji_id": "1241873729798279179",
+                "emoji_name": "BLOHSH",
                 "expires_at": new Date(Date.now() + 60000).toISOString()
             }
         }),
